@@ -37,3 +37,30 @@ eslint配置文件中将prettier添加到extends中
     }
 ```
 ---
+# 配置json-server mock数据
+
+### 安装json-server
+```
+cnpm i josn-server -D
+```
+### 根目录下创建 [__json_server_mock__]文件夹用来存放db.json文件
+```
+// db.json 用于设置造假数据的格式
+{
+    "users": []
+}
+
+```
+### 为了方便将启用json-server的命令配置到packge.json中
+```
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "prepare": "husky install",
+        "json-server": "json-server 
+        __json_server_mock__/db.json --watch"
+    },
+
+```
